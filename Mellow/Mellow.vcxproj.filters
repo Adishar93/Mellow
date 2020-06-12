@@ -27,9 +27,15 @@
     <ClInclude Include="src\Mellow\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mellow\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mellow\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
