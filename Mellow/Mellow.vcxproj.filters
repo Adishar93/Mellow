@@ -4,6 +4,9 @@
     <Filter Include="Mellow">
       <UniqueIdentifier>{35FBDCC2-219D-0799-0A58-1BEDF6988EE9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mellow\Events">
+      <UniqueIdentifier>{79592BB4-E519-A7EA-AE54-F0671AD4EBC6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mellow.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Mellow\EntryPoint.h">
       <Filter>Mellow</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mellow\Events\ApplicationEvent.h">
+      <Filter>Mellow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mellow\Events\Event.h">
+      <Filter>Mellow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mellow\Events\KeyEvent.h">
+      <Filter>Mellow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mellow\Events\MouseEvent.h">
+      <Filter>Mellow\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Mellow\Log.h">
       <Filter>Mellow</Filter>
