@@ -1,3 +1,4 @@
+#include "mwpch.h"
 #include "Application.h"
 
 //added includes after Event Setup

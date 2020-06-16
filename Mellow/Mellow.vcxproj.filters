@@ -34,6 +34,7 @@
     <ClInclude Include="src\Mellow\Log.h">
       <Filter>Mellow</Filter>
     </ClInclude>
+    <ClInclude Include="src\mwpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Mellow\Log.cpp">
       <Filter>Mellow</Filter>
     </ClCompile>
+    <ClCompile Include="src\mwpch.cpp" />
   </ItemGroup>
 </Project>

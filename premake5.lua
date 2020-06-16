@@ -20,6 +20,9 @@ project "Mellow"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "mwpch.h"
+	pchsource "Mellow/src/mwpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

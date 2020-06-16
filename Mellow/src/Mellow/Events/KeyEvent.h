@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Mellow
 {
 	class MELLOW_API KeyEvent : public Event

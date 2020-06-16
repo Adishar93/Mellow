@@ -1,9 +1,6 @@
 #pragma once
 #include "Mellow/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Mellow {
 	//The Events here are Blocking Events
 
