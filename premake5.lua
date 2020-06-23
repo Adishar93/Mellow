@@ -12,6 +12,12 @@ workspace "Mellow"
 
 outputdir= "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+--Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
+
+include "Mellow/vendor/GLFW"
+
 project "Mellow"
 	location "Mellow"
 	kind "SharedLib"
@@ -32,7 +38,14 @@ project "Mellow"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 	
 	filter "system:windows"
