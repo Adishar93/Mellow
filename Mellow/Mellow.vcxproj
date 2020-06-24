@@ -158,11 +158,14 @@
     <ClInclude Include="src\Mellow\Events\KeyEvent.h" />
     <ClInclude Include="src\Mellow\Events\MouseEvent.h" />
     <ClInclude Include="src\Mellow\Log.h" />
+    <ClInclude Include="src\Mellow\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mwpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp" />
     <ClCompile Include="src\Mellow\Log.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mwpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
