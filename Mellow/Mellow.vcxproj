@@ -83,7 +83,7 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -108,7 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -134,7 +134,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -157,6 +157,8 @@
     <ClInclude Include="src\Mellow\Events\Event.h" />
     <ClInclude Include="src\Mellow\Events\KeyEvent.h" />
     <ClInclude Include="src\Mellow\Events\MouseEvent.h" />
+    <ClInclude Include="src\Mellow\Layer.h" />
+    <ClInclude Include="src\Mellow\LayerStack.h" />
     <ClInclude Include="src\Mellow\Log.h" />
     <ClInclude Include="src\Mellow\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -164,6 +166,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp" />
+    <ClCompile Include="src\Mellow\Layer.cpp" />
+    <ClCompile Include="src\Mellow\LayerStack.cpp" />
     <ClCompile Include="src\Mellow\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mwpch.cpp">

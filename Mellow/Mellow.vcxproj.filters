@@ -37,6 +37,12 @@
     <ClInclude Include="src\Mellow\Events\MouseEvent.h">
       <Filter>Mellow\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mellow\Layer.h">
+      <Filter>Mellow</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mellow\LayerStack.h">
+      <Filter>Mellow</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mellow\Log.h">
       <Filter>Mellow</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp">
+      <Filter>Mellow</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mellow\Layer.cpp">
+      <Filter>Mellow</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mellow\LayerStack.cpp">
       <Filter>Mellow</Filter>
     </ClCompile>
     <ClCompile Include="src\Mellow\Log.cpp">
