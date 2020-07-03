@@ -15,8 +15,10 @@ outputdir= "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 --Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
+IncludeDir["Glad"] = "Mellow/vendor/Glad/include"
 
 include "Mellow/vendor/GLFW"
+include "Mellow/vendor/Glad"
 
 project "Mellow"
 	location "Mellow"
@@ -39,12 +41,14 @@ project "Mellow"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 	
@@ -56,7 +60,8 @@ project "Mellow"
 		defines
 		{
 			"MW_PLATFORM_WINDOWS",
-			"MW_BUILD_DLL"
+			"MW_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
