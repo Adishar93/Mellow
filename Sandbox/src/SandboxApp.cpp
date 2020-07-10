@@ -2,6 +2,7 @@
 
 #include <Mellow.h>
 
+
 class ExampleLayer : public Mellow::Layer
 {
 public:
@@ -29,6 +30,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Mellow::ImGuiLayer());
 	}
 
 	~Sandbox()
