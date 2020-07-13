@@ -29,7 +29,7 @@ public:
 
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
 		PushOverlay(new Mellow::ImGuiLayer());
 	}
 

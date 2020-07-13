@@ -55,6 +55,16 @@ namespace Mellow
 		io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
 		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
 
+		io.SetClipboardTextFn = [](void* user_data, const char* text)
+		{
+			glfwSetClipboardString((GLFWwindow*)user_data, text);
+		};
+
+		io.GetClipboardTextFn = [](void* user_data) -> const char*
+		{
+			return glfwGetClipboardString((GLFWwindow*)user_data);
+		};
+
 		ImGui_ImplOpenGL3_Init("#version 410");
 	}
 
@@ -101,7 +111,13 @@ namespace Mellow
 		dispatcher.Dispatch<KeyReleasedEvent>(MELLOW_BIND_EVENT_FN(ImGuiLayer::OnKeyReleasedEvent));
 		dispatcher.Dispatch<KeyTypedEvent>(MELLOW_BIND_EVENT_FN(ImGuiLayer::OnKeyTypedEvent));
 
+		
+
 	}
+
+
+	//TEMPORARY: File scope variable
+	static char buf[25];
 
 	void ImGuiLayer::InitializeCustomUI(bool &show)
 	{
@@ -114,7 +130,14 @@ namespace Mellow
 
 			ImGui::Begin("Custom Test Window");                          // Create a window the parameter string.
 
-			ImGui::Text("Find all the Test Buttons Below");               // Display some text (you can use a format strings too)
+			ImGui::Text("Find all the Test Functions Below:");               // Display some text (you can use a format strings too)
+			
+			ImGui::Text("Type Something: ");
+			ImGui::SameLine();
+
+			
+			ImGui::InputText("", buf, 25, ImGuiInputTextFlags_EnterReturnsTrue);
+
 			ImGui::Checkbox("Demo Window", &show);      // Edit bools storing our window open/close state
 
 			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
@@ -201,4 +224,10 @@ namespace Mellow
 
 		return false;
 	}
+
+
 }
+
+
+
+

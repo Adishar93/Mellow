@@ -39,6 +39,13 @@ namespace Mellow
 		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
 		bool OnKeyTypedEvent(KeyTypedEvent& e);
 		
+		//Not sure about these two functions  
+		// 1) Should be members of this class?
+		// 2) Should they be directly be using GLFW?
+
+		//void ImGui_ImplGlfw_SetClipboardText(void* user_data, const char* text);
+		//const char* ImGui_ImplGlfw_GetClipboardText(void* user_data);
+
 	};
 }
 
