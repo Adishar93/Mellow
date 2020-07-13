@@ -24,7 +24,10 @@ namespace Mellow
 
 	private:
 		float m_Time=0.0f;
+		
 	private:
+		void InitializeCustomUI(bool &show);
+
 		bool OnWindowResizeEvent(WindowResizeEvent& e);
 		
 		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);

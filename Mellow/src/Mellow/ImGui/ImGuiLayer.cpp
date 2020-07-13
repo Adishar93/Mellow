@@ -13,6 +13,8 @@
 
 namespace Mellow
 {
+	ImVec4 clear_color;
+
 	ImGuiLayer::ImGuiLayer() 
 	:Layer("ImGuiLayer"){
 	}
@@ -24,7 +26,7 @@ namespace Mellow
 	void ImGuiLayer::OnAttach()
 	{
 		ImGui::CreateContext();
-		ImGui::StyleColorsDark();
+		ImGui::StyleColorsLight();
 
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
@@ -76,7 +78,9 @@ namespace Mellow
 		ImGui::NewFrame();
 
 		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		InitializeCustomUI(show);
+		
+		//ImGui::ShowDemoWindow(&show);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -97,6 +101,31 @@ namespace Mellow
 		dispatcher.Dispatch<KeyReleasedEvent>(MELLOW_BIND_EVENT_FN(ImGuiLayer::OnKeyReleasedEvent));
 		dispatcher.Dispatch<KeyTypedEvent>(MELLOW_BIND_EVENT_FN(ImGuiLayer::OnKeyTypedEvent));
 
+	}
+
+	void ImGuiLayer::InitializeCustomUI(bool &show)
+	{
+		//static bool show = true;
+		if (show)
+		{
+			
+			glClearColor(clear_color.x,clear_color.y,clear_color.z,clear_color.w);
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			ImGui::Begin("Custom Test Window");                          // Create a window the parameter string.
+
+			ImGui::Text("Find all the Test Buttons Below");               // Display some text (you can use a format strings too)
+			ImGui::Checkbox("Demo Window", &show);      // Edit bools storing our window open/close state
+
+			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+
+			if (ImGui::Button("Close"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+				show = false;
+
+
+			ImGui::Text("Application average %.3f ms/frame (%.2f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+			ImGui::End();
+		}
 	}
 
 	bool ImGuiLayer::OnWindowResizeEvent(WindowResizeEvent& e)
