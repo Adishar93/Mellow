@@ -8,6 +8,9 @@
 #include "Mellow/Events/ApplicationEvent.h"
 
 
+extern struct ImGuiIO;
+
+
 namespace Mellow
 {
 
@@ -24,6 +27,7 @@ namespace Mellow
 
 	private:
 		float m_Time=0.0f;
+		static ImGuiIO* io;
 	private:
 		bool OnWindowResizeEvent(WindowResizeEvent& e);
 		
