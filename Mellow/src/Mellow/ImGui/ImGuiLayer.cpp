@@ -14,11 +14,11 @@
 
 namespace Mellow
 {
-	
+	static ImGuiIO* io;
+
 	ImGuiLayer::ImGuiLayer() 
 	{
 		Layer("ImGuiLayer");
-		io = nullptr;
 	}
 
 	ImGuiLayer::~ImGuiLayer()
