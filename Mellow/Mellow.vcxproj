@@ -158,6 +158,7 @@
     <ClInclude Include="src\Mellow\Events\KeyEvent.h" />
     <ClInclude Include="src\Mellow\Events\MouseEvent.h" />
     <ClInclude Include="src\Mellow\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Mellow\Input.h" />
     <ClInclude Include="src\Mellow\Layer.h" />
     <ClInclude Include="src\Mellow\LayerStack.h" />
     <ClInclude Include="src\Mellow\Log.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mwpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp" />
@@ -177,6 +179,7 @@
     <ClCompile Include="src\mwpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
