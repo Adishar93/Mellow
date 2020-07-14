@@ -18,9 +18,11 @@ IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mellow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mellow/vendor/imgui"
 
-include "Mellow/vendor/GLFW"
-include "Mellow/vendor/Glad"
-include "Mellow/vendor/imgui"
+group "Dependencies"
+	include "Mellow/vendor/GLFW"
+	include "Mellow/vendor/Glad"
+	include "Mellow/vendor/imgui"
+group ""
 
 project "Mellow"
 	location "Mellow"
@@ -70,7 +72,7 @@ project "Mellow"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" ..outputdir.. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug" 
