@@ -26,6 +26,7 @@ project "Mellow"
 	location "Mellow"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +59,6 @@ project "Mellow"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -75,14 +75,17 @@ project "Mellow"
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		
 
@@ -92,6 +95,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +119,6 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -126,13 +129,16 @@ project "Sandbox"
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		
