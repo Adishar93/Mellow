@@ -6,8 +6,9 @@
 
 namespace Mellow
 {
-	Input* Input::s_Instance = new WindowsInput();
-
+#ifdef MW_PLATFORM_WINDOWS
+	Input* Input::s_Instance = MW_INITIALIZE_INPUT;
+#endif
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
