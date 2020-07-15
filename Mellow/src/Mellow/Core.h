@@ -10,6 +10,10 @@
 	#error Mellow only supports windows!
 #endif
 
+#ifdef MW_DEBUG
+	#define MW_ENABLE_ASSERTS
+#endif
+
 #ifdef MW_ENABLE_ASSERTS
 	#define MW_ASSERT(x, ...) {if(!(x)) {MW_ERROR("Assertion failed: {0} ", __VA_ARGS__);__debugbreak();}}
 	#define MW_CORE_ASSERT(x, ...) {if(!(x)) {MW_CORE_ERROR("Assertion failed: {0} ", __VA_ARGS__);__debugbreak();}}

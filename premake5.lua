@@ -18,14 +18,17 @@ IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mellow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mellow/vendor/imgui"
 
-include "Mellow/vendor/GLFW"
-include "Mellow/vendor/Glad"
-include "Mellow/vendor/imgui"
+group "Dependencies"
+	include "Mellow/vendor/GLFW"
+	include "Mellow/vendor/Glad"
+	include "Mellow/vendor/imgui"
+group ""
 
 project "Mellow"
 	location "Mellow"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +61,6 @@ project "Mellow"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -70,19 +72,22 @@ project "Mellow"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" ..outputdir.. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		
 
@@ -92,6 +97,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +121,6 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -126,13 +131,16 @@ project "Sandbox"
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		

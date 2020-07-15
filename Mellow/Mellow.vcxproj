@@ -93,7 +93,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Mellow\Mellow.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Mellow\Mellow.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,7 +119,7 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Mellow\Mellow.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Mellow\Mellow.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Mellow\Mellow.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Mellow\Mellow.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Mellow\Mellow.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -145,7 +145,7 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Mellow\Mellow.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Mellow\Mellow.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -158,6 +158,7 @@
     <ClInclude Include="src\Mellow\Events\KeyEvent.h" />
     <ClInclude Include="src\Mellow\Events\MouseEvent.h" />
     <ClInclude Include="src\Mellow\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Mellow\Input.h" />
     <ClInclude Include="src\Mellow\Layer.h" />
     <ClInclude Include="src\Mellow\LayerStack.h" />
     <ClInclude Include="src\Mellow\Log.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mwpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp" />
@@ -177,6 +179,7 @@
     <ClCompile Include="src\mwpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
