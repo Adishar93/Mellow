@@ -44,7 +44,7 @@ namespace Mellow
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(MELLOW_BIND_EVENT_FN(Application::OnWindowClose));
-		MW_CORE_TRACE("{0}",e);
+		//MW_CORE_TRACE("{0}",e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -64,9 +64,6 @@ namespace Mellow
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
-
-			auto [x, y] = Input::GetMousePosition();
-			MW_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

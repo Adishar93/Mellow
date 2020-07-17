@@ -67,6 +67,8 @@
     <ClInclude Include="src\mwpch.h" />
     <ClInclude Include="src\Mellow\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Mellow\KeyCodes.h" />
+    <ClInclude Include="src\Mellow\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp">

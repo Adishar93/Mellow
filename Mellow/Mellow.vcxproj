@@ -159,9 +159,11 @@
     <ClInclude Include="src\Mellow\Events\MouseEvent.h" />
     <ClInclude Include="src\Mellow\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Mellow\Input.h" />
+    <ClInclude Include="src\Mellow\KeyCodes.h" />
     <ClInclude Include="src\Mellow\Layer.h" />
     <ClInclude Include="src\Mellow\LayerStack.h" />
     <ClInclude Include="src\Mellow\Log.h" />
+    <ClInclude Include="src\Mellow\MouseButtonCodes.h" />
     <ClInclude Include="src\Mellow\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
