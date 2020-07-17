@@ -17,6 +17,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mellow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mellow/vendor/imgui"
+IncludeDir["glm"] = "Mellow/vendor/glm"
 
 group "Dependencies"
 	include "Mellow/vendor/GLFW"
@@ -39,7 +40,9 @@ project "Mellow"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -48,7 +51,8 @@ project "Mellow"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -111,7 +115,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Mellow/vendor/spdlog/include",
-		"Mellow/src"
+		"Mellow/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
