@@ -40,7 +40,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Mellow::ImGuiLayer());
 	}
 
 	~Sandbox()

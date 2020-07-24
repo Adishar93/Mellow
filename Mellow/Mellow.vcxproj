@@ -165,7 +165,6 @@
     <ClInclude Include="src\Mellow\Log.h" />
     <ClInclude Include="src\Mellow\MouseButtonCodes.h" />
     <ClInclude Include="src\Mellow\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mwpch.h" />
@@ -580,11 +579,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mellow\Application.cpp" />
+    <ClCompile Include="src\Mellow\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Mellow\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Mellow\Layer.cpp" />
     <ClCompile Include="src\Mellow\LayerStack.cpp" />
     <ClCompile Include="src\Mellow\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mwpch.cpp">
