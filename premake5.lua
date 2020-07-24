@@ -17,15 +17,19 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Mellow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mellow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mellow/vendor/imgui"
+IncludeDir["glm"] = "Mellow/vendor/glm"
 
-include "Mellow/vendor/GLFW"
-include "Mellow/vendor/Glad"
-include "Mellow/vendor/imgui"
+group "Dependencies"
+	include "Mellow/vendor/GLFW"
+	include "Mellow/vendor/Glad"
+	include "Mellow/vendor/imgui"
+group ""
 
 project "Mellow"
 	location "Mellow"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -36,7 +40,9 @@ project "Mellow"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -45,7 +51,8 @@ project "Mellow"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -58,7 +65,6 @@ project "Mellow"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -70,19 +76,22 @@ project "Mellow"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" ..outputdir.. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		
 
@@ -92,6 +101,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -105,7 +115,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Mellow/vendor/spdlog/include",
-		"Mellow/src"
+		"Mellow/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -115,7 +126,6 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -126,13 +136,16 @@ project "Sandbox"
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
+		runtime "Release"
 		optimize "On"
 		

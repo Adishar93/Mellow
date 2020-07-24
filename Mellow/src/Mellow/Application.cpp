@@ -5,6 +5,8 @@
 
 #include <glad/glad.h>
 
+#include "input.h"
+
 namespace Mellow
 {
 
@@ -42,7 +44,7 @@ namespace Mellow
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(MELLOW_BIND_EVENT_FN(Application::OnWindowClose));
-		MW_CORE_TRACE("{0}",e);
+		//MW_CORE_TRACE("{0}",e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
