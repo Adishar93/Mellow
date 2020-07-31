@@ -7,7 +7,7 @@
 namespace Mellow
 {
 #ifdef MW_PLATFORM_WINDOWS
-	Input* Input::s_Instance = MW_INITIALIZE_INPUT;
+	Input* Input::s_Instance = new WindowsInput();;
 #endif
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{

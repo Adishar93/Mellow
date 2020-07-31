@@ -7,3 +7,6 @@
 [submodule "Mellow/vendor/imgui"]
 	path = Mellow/vendor/imgui
 	url = https://github.com/TheCherno/imgui.git
+[submodule "Mellow/vendor/glm"]
+	path = Mellow/vendor/glm
+	url = https://github.com/g-truc/glm
