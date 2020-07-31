@@ -30,8 +30,13 @@ namespace Mellow
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
 		if (it != m_Layers.end())
 		{
+			
 			m_Layers.erase(it);
 			m_LayerInsertIndex--;
+		}
+		else
+		{
+			MW_CORE_WARN("Pop layer failed (specified layer not found or stack empty)");
 		}
 	}
 
@@ -41,6 +46,10 @@ namespace Mellow
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
+		}
+		else
+		{
+			MW_CORE_WARN("Pop overlay failed (specified layer not found or stack empty)");
 		}
 	}
 

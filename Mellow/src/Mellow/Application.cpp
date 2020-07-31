@@ -58,7 +58,8 @@ namespace Mellow
 
 	void Application::Run()
 	{
-		
+		//m_LayerStack.PopLayer(nullptr);
+
 		while (m_Running)
 		{
 			glClearColor(1, 0, 0, 1);
