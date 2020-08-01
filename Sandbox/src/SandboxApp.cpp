@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Mellow.h>
+#include <imgui/imgui.h>
 
 
 class ExampleLayer : public Mellow::Layer
@@ -16,6 +17,14 @@ public:
 	{
 		if (Mellow::Input::IsKeyPressed(MW_KEY_TAB))
 			MW_TRACE("TAB Key Was Pressed! (Poll)");
+	}
+
+	void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("This is a new window");
+		ImGui::End();
+
 	}
 
 	void OnEvent(Mellow::Event& event) override

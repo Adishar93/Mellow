@@ -27,9 +27,10 @@ group ""
 
 project "Mellow"
 	location "Mellow"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -44,6 +45,11 @@ project "Mellow"
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
+
+	defines
+		{
+			"_CRT_SECURE_NO_WARNINGS"
+		}
 
 	includedirs
 	{
@@ -64,7 +70,6 @@ project "Mellow"
 	}
 	
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -74,25 +79,22 @@ project "Mellow"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" ..outputdir.. "/Sandbox/\"")
-		}
+	
 
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 		
 
 
@@ -101,7 +103,8 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -116,6 +119,7 @@ project "Sandbox"
 	{
 		"Mellow/vendor/spdlog/include",
 		"Mellow/src",
+		"Mellow/vendor",
 		"%{IncludeDir.glm}"
 	}
 
@@ -125,7 +129,6 @@ project "Sandbox"
 	}
 	
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -137,15 +140,15 @@ project "Sandbox"
 	filter "configurations:Debug" 
 		defines "MW_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "MW_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "MW_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 		
